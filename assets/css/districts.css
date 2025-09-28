@@ -1,0 +1,120 @@
+/* Districts listing page styles */
+.districts-hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.districts-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.advanced-filters {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.search-box-advanced {
+    position: relative;
+}
+
+.search-box-advanced i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.search-box-advanced input {
+    padding-left: 35px;
+}
+
+.districts-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.districts-table th {
+    background: var(--accent-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.districts-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.districts-table tr:hover {
+    background: #f8f9fa;
+}
+
+.district-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.district-link:hover {
+    text-decoration: underline;
+}
+
+.state-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .districts-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
