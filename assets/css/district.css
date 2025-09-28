@@ -1,0 +1,111 @@
+/* District detail page styles */
+.district-hero {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem 0;
+}
+
+.district-basic-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.district-tabs {
+    margin: 2rem 0;
+}
+
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.demographics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.demographic-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-bar {
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.stat-bar-bg {
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.attraction-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.attraction-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.map-container {
+    height: 400px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2rem 0;
+}
