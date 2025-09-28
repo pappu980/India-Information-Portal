@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>States of India | भारत के राज्य - Bharat States & Districts</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/states.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .states-listing {
+            padding: 2rem 0;
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .filter-group select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .states-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .state-card-large {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .state-card-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .state-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .state-info {
+            padding: 20px;
+        }
+        
+        .state-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+        
+        .state-capital {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .state-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .state-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 10px;
+        }
+        
+        .page-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .page-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🇮🇳</div>
+                    <div class="logo-text">
+                        <span class="en">Bharat: States & Districts</span>
+                        <span class="hi hindi" style="display: none;">भारत: राज्य और जिले</span>
+                    </div>
+                </div>
+                <div class="language-toggle">
+                    <button class="lang-btn active" id="en-btn">English</button>
+                    <button class="lang-btn" id="hi-btn">हिन्दी</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../../index.html" class="en">Home</a><a href="../../index.html" class="hi hindi" style="display: none;">होम</a></li>
+                <li><a href="index.html" class="en active-nav">States</a><a href="index.html" class="hi hindi" style="display: none;">राज्य</a></li>
+                <li><a href="../districts/index.html" class="en">Districts</a><a href="../districts/index.html" class="hi hindi" style="display: none;">जिले</a></li>
+                <li><a href="../culture/index.html" class="en">Culture</a><a href="../culture/index.html" class="hi hindi" style="display: none;">संस्कृति</a></li>
+                <li><a href="../tourism/index.html" class="en">Tourism</a><a href="../tourism/index.html" class="hi hindi" style="display: none;">पर्यटन</a></li>
+                <li><a href="../compare/index.html" class="en">Compare</a><a href="../compare/index.html" class="hi hindi" style="display: none;">तुलना</a></li>
+                <li><a href="../quiz/index.html" class="en">Quiz</a><a href="../quiz/index.html" class="hi hindi" style="display: none;">क्विज</a></li>
+                <li><a href="../about/index.html" class="en">About</a><a href="../about/index.html" class="hi hindi" style="display: none;">हमारे बारे में</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="en">States of India</h1>
+            <h1 class="hi hindi" style="display: none;">भारत के राज्य</h1>
+            
+            <p class="en">Explore detailed information about all 28 states and 8 union territories of India</p>
+            <p class="hi hindi" style="display: none;">भारत के सभी 28 राज्यों और 8 केंद्र शासित प्रदेशों के बारे में विस्तृत जानकारी का अन्वेषण करें</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <h2 class="en">Filter States</h2>
+            <h2 class="hi hindi" style="display: none;">राज्य फिल्टर करें</h2>
+            
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label for="region" class="en">Region</label>
+                    <label for="region" class="hi hindi" style="display: none;">क्षेत्र</label>
+                    <select id="region">
+                        <option value="all" class="en">All Regions</option>
+                        <option value="all" class="hi hindi" style="display: none;">सभी क्षेत्र</option>
+                        <option value="north" class="en">North India</option>
+                        <option value="north" class="hi hindi" style="display: none;">उत्तर भारत</option>
+                        <option value="south" class="en">South India</option>
+                        <option value="south" class="hi hindi" style="display: none;">दक्षिण भारत</option>
+                        <option value="east" class="en">East India</option>
+                        <option value="east" class="hi hindi" style="display: none;">पूर्वी भारत</option>
+                        <option value="west" class="en">West India</option>
+                        <option value="west" class="hi hindi" style="display: none;">पश्चिम भारत</option>
+                        <option value="central" class="en">Central India</option>
+                        <option value="central" class="hi hindi" style="display: none;">मध्य भारत</option>
+                        <option value="northeast" class="en">Northeast India</option>
+                        <option value="northeast" class="hi hindi" style="display: none;">पूर्वोत्तर भारत</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="type" class="en">Type</label>
+                    <label for="type" class="hi hindi" style="display: none;">प्रकार</label>
+                    <select id="type">
+                        <option value="all" class="en">All Types</option>
+                        <option value="all" class="hi hindi" style="display: none;">सभी प्रकार</option>
+                        <option value="state" class="en">States</option>
+                        <option value="state" class="hi hindi" style="display: none;">राज्य</option>
+                        <option value="ut" class="en">Union Territories</option>
+                        <option value="ut" class="hi hindi" style="display: none;">केंद्र शासित प्रदेश</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort" class="en">Sort By</label>
+                    <label for="sort" class="hi hindi" style="display: none;">क्रमबद्ध करें</label>
+                    <select id="sort">
+                        <option value="name" class="en">Name (A-Z)</option>
+                        <option value="name" class="hi hindi" style="display: none;">नाम (क-ह)</option>
+                        <option value="population" class="en">Population</option>
+                        <option value="population" class="hi hindi" style="display: none;">जनसंख्या</option>
+                        <option value="area" class="en">Area</option>
+                        <option value="area" class="hi hindi" style="display: none;">क्षेत्रफल</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- States Grid -->
+        <section class="states-listing">
+            <div class="states-grid">
+                <!-- Uttar Pradesh -->
+                <div class="state-card-large" data-state="up" data-region="north" data-type="state">
+                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="state-info">
+                        <div class="state-name en">Uttar Pradesh</div>
+                        <div class="state-name hi hindi" style="display: none;">उत्तर प्रदेश</div>
+                        <div class="state-capital en">Capital: Lucknow</div>
+                        <div class="state-capital hi hindi" style="display: none;">राजधानी: लखनऊ</div>
+                        <div class="state-details">
+                            <span class="en">Districts: 75</span>
+                            <span class="hi hindi" style="display: none;">जिले: 75</span>
+                            <span class="en">Population: 199.8M</span>
+                            <span class="hi hindi" style="display: none;">जनसंख्या: 199.8M</span>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn btn-primary en" onclick="window.location.href='uttar-pradesh.html'">View Details</button>
+                            <button class="btn btn-primary hi hindi" style="display: none;" onclick="window.location.href='uttar-pradesh.html'">विवरण देखें</button>
+                            <button class="btn btn-outline en">Compare</button>
+                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Maharashtra -->
+                <div class="state-card-large" data-state="mh" data-region="west" data-type="state">
+                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="state-info">
+                        <div class="state-name en">Maharashtra</div>
+                        <div class="state-name hi hindi" style="display: none;">महाराष्ट्र</div>
+                        <div class="state-capital en">Capital: Mumbai</div>
+                        <div class="state-capital hi hindi" style="display: none;">राजधानी: मुंबई</div>
+                        <div class="state-details">
+                            <span class="en">Districts: 36</span>
+                            <span class="hi hindi" style="display: none;">जिले: 36</span>
+                            <span class="en">Population: 112.4M</span>
+                            <span class="hi hindi" style="display: none;">जनसंख्या: 112.4M</span>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn btn-primary en">View Details</button>
+                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
+                            <button class="btn btn-outline en">Compare</button>
+                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rajasthan -->
+                <div class="state-card-large" data-state="rj" data-region="north" data-type="state">
+                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587132135055-2b684f2c12a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="state-info">
+                        <div class="state-name en">Rajasthan</div>
+                        <div class="state-name hi hindi" style="display: none;">राजस्थान</div>
+                        <div class="state-capital en">Capital: Jaipur</div>
+                        <div class="state-capital hi hindi" style="display: none;">राजधानी: जयपुर</div>
+                        <div class="state-details">
+                            <span class="en">Districts: 33</span>
+                            <span class="hi hindi" style="display: none;">जिले: 33</span>
+                            <span class="en">Population: 68.5M</span>
+                            <span class="hi hindi" style="display: none;">जनसंख्या: 68.5M</span>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn btn-primary en">View Details</button>
+                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
+                            <button class="btn btn-outline en">Compare</button>
+                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tamil Nadu -->
+                <div class="state-card-large" data-state="tn" data-region="south" data-type="state">
+                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="state-info">
+                        <div class="state-name en">Tamil Nadu</div>
+                        <div class="state-name hi hindi" style="display: none;">तमिल नाडु</div>
+                        <div class="state-capital en">Capital: Chennai</div>
+                        <div class="state-capital hi hindi" style="display: none;">राजधानी: चेन्नई</div>
+                        <div class="state-details">
+                            <span class="en">Districts: 38</span>
+                            <span class="hi hindi" style="display: none;">जिले: 38</span>
+                            <span class="en">Population: 72.1M</span>
+                            <span class="hi hindi" style="display: none;">जनसंख्या: 72.1M</span>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn btn-primary en">View Details</button>
+                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
+                            <button class="btn btn-outline en">Compare</button>
+                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Delhi (UT) -->
+                <div class="state-card-large" data-state="dl" data-region="north" data-type="ut">
+                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="state-info">
+                        <div class="state-name en">Delhi</div>
+                        <div class="state-name hi hindi" style="display: none;">दिल्ली</div>
+                        <div class="state-capital en">Capital: New Delhi</div>
+                        <div class="state-capital hi hindi" style="display: none;">राजधानी: नई दिल्ली</div>
+                        <div class="state-details">
+                            <span class="en">Districts: 11</span>
+                            <span class="hi hindi" style="display: none;">जिले: 11</span>
+                            <span class="en">Population: 16.8M</span>
+                            <span class="hi hindi" style="display: none;">जनसंख्या: 16.8M</span>
+                        </div>
+                        <div class="state-actions">
+                            <button class="btn btn-primary en">View Details</button>
+                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
+                            <button class="btn btn-outline en">Compare</button>
+                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn en">Previous</button>
+                <button class="page-btn en">1</button>
+                <button class="page-btn active en">2</button>
+                <button class="page-btn en">3</button>
+                <button class="page-btn en">Next</button>
+                
+                <button class="page-btn hi hindi" style="display: none;">पिछला</button>
+                <button class="page-btn hi hindi" style="display: none;">1</button>
+                <button class="page-btn active hi hindi" style="display: none;">2</button>
+                <button class="page-btn hi hindi" style="display: none;">3</button>
+                <button class="page-btn hi hindi" style="display: none;">अगला</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="en">About Us</h3>
+                    <h3 class="hi hindi" style="display: none;">हमारे बारे में</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../about/index.html" class="en">Our Mission</a><a href="../../about/index.html" class="hi hindi" style="display: none;">हमारा मिशन</a></li>
+                        <li><a href="../../about/team.html" class="en">Team</a><a href="../../about/team.html" class="hi hindi" style="display: none;">टीम</a></li>
+                        <li><a href="../../about/contact.html" class="en">Contact</a><a href="../../about/contact.html" class="hi hindi" style="display: none;">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en">Resources</h3>
+                    <h3 class="hi hindi" style="display: none;">संसाधन</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../resources/data-sources.html" class="en">Data Sources</a><a href="../../resources/data-sources.html" class="hi hindi" style="display: none;">डेटा स्रोत</a></li>
+                        <li><a href="../../resources/api.html" class="en">API</a><a href="../../resources/api.html" class="hi hindi" style="display: none;">एपीआई</a></li>
+                        <li><a href="../../resources/downloads.html" class="en">Downloads</a><a href="../../resources/downloads.html" class="hi hindi" style="display: none;">डाउनलोड</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en">Connect</h3>
+                    <h3 class="hi hindi" style="display: none;">जुड़ें</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="en">Facebook</a></li>
+                        <li><a href="#" class="en">Twitter</a></li>
+                        <li><a href="#" class="en">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="en">© 2023 Bharat: States & Districts Information Portal. All rights reserved.</p>
+                <p class="hi hindi" style="display: none;">© 2023 भारत: राज्य और जिला सूचना पोर्टल। सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/language-toggle.js"></script>
+    <script src="../../assets/js/states-filter.js"></script>
+    <script>
+        // Initialize with English
+        toggleLanguage('en');
+        
+        // Filter functionality
+        document.getElementById('region').addEventListener('change', filterStates);
+        document.getElementById('type').addEventListener('change', filterStates);
+        document.getElementById('sort').addEventListener('change', sortStates);
+        
+        function filterStates() {
+            const region = document.getElementById('region').value;
+            const type = document.getElementById('type').value;
+            const states = document.querySelectorAll('.state-card-large');
+            
+            states.forEach(state => {
+                const stateRegion = state.getAttribute('data-region');
+                const stateType = state.getAttribute('data-type');
+                
+                const regionMatch = region === 'all' || stateRegion === region;
+                const typeMatch = type === 'all' || stateType === type;
+                
+                if (regionMatch && typeMatch) {
+                    state.style.display = 'block';
+                } else {
+                    state.style.display = 'none';
+                }
+            });
+        }
+        
+        function sortStates() {
+            const sortBy = document.getElementById('sort').value;
+            // Implementation for sorting would go here
+            console.log('Sorting by:', sortBy);
+        }
+    </script>
+</body>
+</html>
