@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Districts of India | भारत के जिले - Bharat States & Districts</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/districts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .districts-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://images.unsplash.com/photo-1542662565-7e4b66bae529?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .districts-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .advanced-filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .search-box-advanced {
+            position: relative;
+        }
+        
+        .search-box-advanced i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        .search-box-advanced input {
+            padding-left: 35px;
+        }
+        
+        .districts-listing {
+            margin: 2rem 0;
+        }
+        
+        .districts-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .districts-table th {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .districts-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .districts-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .district-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .district-link:hover {
+            text-decoration: underline;
+        }
+        
+        .state-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        .view-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .districts-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🇮🇳</div>
+                    <div class="logo-text">
+                        <span class="en">Bharat: States & Districts</span>
+                        <span class="hi hindi" style="display: none;">भारत: राज्य और जिले</span>
+                    </div>
+                </div>
+                <div class="language-toggle">
+                    <button class="lang-btn active" id="en-btn">English</button>
+                    <button class="lang-btn" id="hi-btn">हिन्दी</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="../../index.html" class="en">Home</a><a href="../../index.html" class="hi hindi" style="display: none;">होम</a></li>
+                <li><a href="../states/index.html" class="en">States</a><a href="../states/index.html" class="hi hindi" style="display: none;">राज्य</a></li>
+                <li><a href="index.html" class="en active-nav">Districts</a><a href="index.html" class="hi hindi" style="display: none;">जिले</a></li>
+                <li><a href="../culture/index.html" class="en">Culture</a><a href="../culture/index.html" class="hi hindi" style="display: none;">संस्कृति</a></li>
+                <li><a href="../tourism/index.html" class="en">Tourism</a><a href="../tourism/index.html" class="hi hindi" style="display: none;">पर्यटन</a></li>
+                <li><a href="../compare/index.html" class="en">Compare</a><a href="../compare/index.html" class="hi hindi" style="display: none;">तुलना</a></li>
+                <li><a href="../quiz/index.html" class="en">Quiz</a><a href="../quiz/index.html" class="hi hindi" style="display: none;">क्विज</a></li>
+                <li><a href="../about/index.html" class="en">About</a><a href="../about/index.html" class="hi hindi" style="display: none;">हमारे बारे में</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="districts-hero">
+        <div class="container">
+            <h1 class="en">Districts of India</h1>
+            <h1 class="hi hindi" style="display: none;">भारत के जिले</h1>
+            
+            <p class="en">Explore all 766 districts across 28 states and 8 union territories of India</p>
+            <p class="hi hindi" style="display: none;">भारत के 28 राज्यों और 8 केंद्र शासित प्रदेशों में फैले सभी 766 जिलों का अन्वेषण करें</p>
+            
+            <div class="districts-stats">
+                <div class="stat-card">
+                    <div class="stat-number">766</div>
+                    <div class="stat-label en">Districts</div>
+                    <div class="stat-label hi hindi" style="display: none;">जिले</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label en">States</div>
+                    <div class="stat-label hi hindi" style="display: none;">राज्य</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label en">Union Territories</div>
+                    <div class="stat-label hi hindi" style="display: none;">केंद्र शासित प्रदेश</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">250k+</div>
+                    <div class="stat-label en">Villages</div>
+                    <div class="stat-label hi hindi" style="display: none;">गाँव</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Advanced Filters -->
+        <section class="advanced-filters">
+            <h2 class="en">Find Districts</h2>
+            <h2 class="hi hindi" style="display: none;">जिले खोजें</h2>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="state-filter" class="en">State/UT</label>
+                    <label for="state-filter" class="hi hindi" style="display: none;">राज्य/केंद्र शासित प्रदेश</label>
+                    <select id="state-filter">
+                        <option value="all" class="en">All States & UTs</option>
+                        <option value="all" class="hi hindi" style="display: none;">सभी राज्य और केंद्र शासित प्रदेश</option>
+                        <option value="up" class="en">Uttar Pradesh</option>
+                        <option value="up" class="hi hindi" style="display: none;">उत्तर प्रदेश</option>
+                        <option value="mh" class="en">Maharashtra</option>
+                        <option value="mh" class="hi hindi" style="display: none;">महाराष्ट्र</option>
+                        <option value="br" class="en">Bihar</option>
+                        <option value="br" class="hi hindi" style="display: none;">बिहार</option>
+                        <option value="wb" class="en">West Bengal</option>
+                        <option value="wb" class="hi hindi" style="display: none;">पश्चिम बंगाल</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="zone-filter" class="en">Zone</label>
+                    <label for="zone-filter" class="hi hindi" style="display: none;">क्षेत्र</label>
+                    <select id="zone-filter">
+                        <option value="all" class="en">All Zones</option>
+                        <option value="all" class="hi hindi" style="display: none;">सभी क्षेत्र</option>
+                        <option value="north" class="en">North India</option>
+                        <option value="north" class="hi hindi" style="display: none;">उत्तर भारत</option>
+                        <option value="south" class="en">South India</option>
+                        <option value="south" class="hi hindi" style="display: none;">दक्षिण भारत</option>
+                        <option value="east" class="en">East India</option>
+                        <option value="east" class="hi hindi" style="display: none;">पूर्वी भारत</option>
+                        <option value="west" class="en">West India</option>
+                        <option value="west" class="hi hindi" style="display: none;">पश्चिम भारत</option>
+                        <option value="central" class="en">Central India</option>
+                        <option value="central" class="hi hindi" style="display: none;">मध्य भारत</option>
+                        <option value="northeast" class="en">Northeast India</option>
+                        <option value="northeast" class="hi hindi" style="display: none;">पूर्वोत्तर भारत</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="population-filter" class="en">Population</label>
+                    <label for="population-filter" class="hi hindi" style="display: none;">जनसंख्या</label>
+                    <select id="population-filter">
+                        <option value="all" class="en">Any Population</option>
+                        <option value="all" class="hi hindi" style="display: none;">कोई भी जनसंख्या</option>
+                        <option value="small" class="en">Small (&lt; 500K)</option>
+                        <option value="small" class="hi hindi" style="display: none;">छोटी (&lt; 500K)</option>
+                        <option value="medium" class="en">Medium (500K - 2M)</option>
+                        <option value="medium" class="hi hindi" style="display: none;">मध्यम (500K - 2M)</option>
+                        <option value="large" class="en">Large (&gt; 2M)</option>
+                        <option value="large" class="hi hindi" style="display: none;">बड़ी (&gt; 2M)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group search-box-advanced">
+                    <label for="district-search" class="en">Search District</label>
+                    <label for="district-search" class="hi hindi" style="display: none;">जिला खोजें</label>
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="district-search" placeholder="Enter district name..." class="en">
+                    <input type="text" id="district-search-hi" placeholder="जिले का नाम दर्ज करें..." class="hi hindi" style="display: none;">
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button class="btn btn-primary en" onclick="applyFilters()">Apply Filters</button>
+                <button class="btn btn-primary hi hindi" style="display: none;" onclick="applyFilters()">फिल्टर लागू करें</button>
+                
+                <button class="btn btn-outline en" onclick="resetFilters()">Reset</button>
+                <button class="btn btn-outline hi hindi" style="display: none;" onclick="resetFilters()">रीसेट करें</button>
+            </div>
+        </section>
+
+        <!-- Districts Table -->
+        <section class="districts-listing">
+            <h2 class="section-title en">All Districts</h2>
+            <h2 class="section-title hi hindi" style="display: none;">सभी जिले</h2>
+            
+            <div class="districts-table-container">
+                <table class="districts-table">
+                    <thead>
+                        <tr>
+                            <th class="en">District Name</th>
+                            <th class="hi hindi" style="display: none;">जिले का नाम</th>
+                            <th class="en">State/UT</th>
+                            <th class="hi hindi" style="display: none;">राज्य/केंद्र शासित प्रदेश</th>
+                            <th class="en">Headquarters</th>
+                            <th class="hi hindi" style="display: none;">मुख्यालय</th>
+                            <th class="en">Population</th>
+                            <th class="hi hindi" style="display: none;">जनसंख्या</th>
+                            <th class="en">Area (km²)</th>
+                            <th class="hi hindi" style="display: none;">क्षेत्रफल (किमी²)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Uttar Pradesh Districts -->
+                        <tr>
+                            <td><a href="lucknow.html" class="district-link en">Lucknow</a><a href="lucknow.html" class="district-link hi hindi" style="display: none;">लखनऊ</a></td>
+                            <td><span class="state-badge en">Uttar Pradesh</span><span class="state-badge hi hindi" style="display: none;">उत्तर प्रदेश</span></td>
+                            <td class="en">Lucknow</td>
+                            <td class="hi hindi" style="display: none;">लखनऊ</td>
+                            <td>4,589,838</td>
+                            <td>2,528</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="district-link en">Varanasi</a><a href="#" class="district-link hi hindi" style="display: none;">वाराणसी</a></td>
+                            <td><span class="state-badge en">Uttar Pradesh</span><span class="state-badge hi hindi" style="display: none;">उत्तर प्रदेश</span></td>
+                            <td class="en">Varanasi</td>
+                            <td class="hi hindi" style="display: none;">वाराणसी</td>
+                            <td>3,676,841</td>
+                            <td>1,535</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="district-link en">Agra</a><a href="#" class="district-link hi hindi" style="display: none;">आगरा</a></td>
+                            <td><span class="state-badge en">Uttar Pradesh</span><span class="state-badge hi hindi" style="display: none;">उत्तर प्रदेश</span></td>
+                            <td class="en">Agra</td>
+                            <td class="hi hindi" style="display: none;">आगरा</td>
+                            <td>4,418,797</td>
+                            <td>4,027</td>
+                        </tr>
+                        
+                        <!-- Maharashtra Districts -->
+                        <tr>
+                            <td><a href="#" class="district-link en">Mumbai City</a><a href="#" class="district-link hi hindi" style="display: none;">मुंबई सिटी</a></td>
+                            <td><span class="state-badge en">Maharashtra</span><span class="state-badge hi hindi" style="display: none;">महाराष्ट्र</span></td>
+                            <td class="en">Mumbai</td>
+                            <td class="hi hindi" style="display: none;">मुंबई</td>
+                            <td>3,145,966</td>
+                            <td>157</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="district-link en">Pune</a><a href="#" class="district-link hi hindi" style="display: none;">पुणे</a></td>
+                            <td><span class="state-badge en">Maharashtra</span><span class="state-badge hi hindi" style="display: none;">महाराष्ट्र</span></td>
+                            <td class="en">Pune</td>
+                            <td class="hi hindi" style="display: none;">पुणे</td>
+                            <td>9,429,408</td>
+                            <td>15,643</td>
+                        </tr>
+                        
+                        <!-- Bihar Districts -->
+                        <tr>
+                            <td><a href="#" class="district-link en">Patna</a><a href="#" class="district-link hi hindi" style="display: none;">पटना</a></td>
+                            <td><span class="state-badge en">Bihar</span><span class="state-badge hi hindi" style="display: none;">बिहार</span></td>
+                            <td class="en">Patna</td>
+                            <td class="hi hindi" style="display: none;">पटना</td>
+                            <td>5,838,465</td>
+                            <td>3,202</td>
+                        </tr>
+                        
+                        <!-- West Bengal Districts -->
+                        <tr>
+                            <td><a href="#" class="district-link en">Kolkata</a><a href="#" class="district-link hi hindi" style="display: none;">कोलकाता</a></td>
+                            <td><span class="state-badge en">West Bengal</span><span class="state-badge hi hindi" style="display: none;">पश्चिम बंगाल</span></td>
+                            <td class="en">Kolkata</td>
+                            <td class="hi hindi" style="display: none;">कोलकाता</td>
+                            <td>4,496,694</td>
+                            <td>206</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="view-more">
+                <button class="btn btn-primary en">Load More Districts</button>
+                <button class="btn btn-primary hi hindi" style="display: none;">और जिले लोड करें</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="en">About Us</h3>
+                    <h3 class="hi hindi" style="display: none;">हमारे बारे में</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../about/index.html" class="en">Our Mission</a><a href="../../about/index.html" class="hi hindi" style="display: none;">हमारा मिशन</a></li>
+                        <li><a href="../../about/team.html" class="en">Team</a><a href="../../about/team.html" class="hi hindi" style="display: none;">टीम</a></li>
+                        <li><a href="../../about/contact.html" class="en">Contact</a><a href="../../about/contact.html" class="hi hindi" style="display: none;">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en">Resources</h3>
+                    <h3 class="hi hindi" style="display: none;">संसाधन</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../resources/data-sources.html" class="en">Data Sources</a><a href="../../resources/data-sources.html" class="hi hindi" style="display: none;">डेटा स्रोत</a></li>
+                        <li><a href="../../resources/api.html" class="en">API</a><a href="../../resources/api.html" class="hi hindi" style="display: none;">एपीआई</a></li>
+                        <li><a href="../../resources/downloads.html" class="en">Downloads</a><a href="../../resources/downloads.html" class="hi hindi" style="display: none;">डाउनलोड</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="en">Connect</h3>
+                    <h3 class="hi hindi" style="display: none;">जुड़ें</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="en">Facebook</a></li>
+                        <li><a href="#" class="en">Twitter</a></li>
+                        <li><a href="#" class="en">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p class="en">© 2023 Bharat: States & Districts Information Portal. All rights reserved.</p>
+                <p class="hi hindi" style="display: none;">© 2023 भारत: राज्य और जिला सूचना पोर्टल। सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/language-toggle.js"></script>
+    <script>
+        // Initialize with English
+        toggleLanguage('en');
+        
+        // Filter functionality
+        function applyFilters() {
+            const state = document.getElementById('state-filter').value;
+            const zone = document.getElementById('zone-filter').value;
+            const population = document.getElementById('population-filter').value;
+            const search = document.getElementById('district-search').value.toLowerCase();
+            const searchHi = document.getElementById('district-search-hi').value.toLowerCase();
+            
+            const rows = document.querySelectorAll('.districts-table tbody tr');
+            
+            rows.forEach(row => {
+                const districtName = row.cells[0].textContent.toLowerCase();
+                const stateName = row.cells[1].textContent.toLowerCase();
+                const populationText = row.cells[4].textContent;
+                const populationValue = parseInt(populationText.replace(/,/g, ''));
+                
+                let stateMatch = state === 'all' || stateName.includes(state);
+                let zoneMatch = zone === 'all'; // In real implementation, we would have zone data
+                let populationMatch = population === 'all' || 
+                    (population === 'small' && populationValue < 500000) ||
+                    (population === 'medium' && populationValue >= 500000 && populationValue <= 2000000) ||
+                    (population === 'large' && populationValue > 2000000);
+                let searchMatch = search === '' || districtName.includes(search) || 
+                                 searchHi === '' || districtName.includes(searchHi);
+                
+                if (stateMatch && zoneMatch && populationMatch && searchMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function resetFilters() {
+            document.getElementById('state-filter').value = 'all';
+            document.getElementById('zone-filter').value = 'all';
+            document.getElementById('population-filter').value = 'all';
+            document.getElementById('district-search').value = '';
+            document.getElementById('district-search-hi').value = '';
+            
+            const rows = document.querySelectorAll('.districts-table tbody tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+        
+        // Update search input based on language
+        document.getElementById('en-btn').addEventListener('click', function() {
+            document.getElementById('district-search').style.display = 'block';
+            document.getElementById('district-search-hi').style.display = 'none';
+        });
+        
+        document.getElementById('hi-btn').addEventListener('click', function() {
+            document.getElementById('district-search').style.display = 'none';
+            document.getElementById('district-search-hi').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
