@@ -1,0 +1,41 @@
+[
+  {
+    "id": "up",
+    "name_en": "Uttar Pradesh",
+    "name_hi": "उत्तर प्रदेश",
+    "capital_en": "Lucknow",
+    "capital_hi": "लखनऊ",
+    "districts": 75,
+    "population": "199.8M",
+    "region": "north",
+    "type": "state",
+    "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=500&q=60",
+    "page": "uttar-pradesh.html"
+  },
+  {
+    "id": "mh",
+    "name_en": "Maharashtra",
+    "name_hi": "महाराष्ट्र",
+    "capital_en": "Mumbai",
+    "capital_hi": "मुंबई",
+    "districts": 36,
+    "population": "112.4M",
+    "region": "west",
+    "type": "state",
+    "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=500&q=60",
+    "page": "maharashtra.html"
+  },
+  {
+    "id": "rj",
+    "name_en": "Rajasthan",
+    "name_hi": "राजस्थान",
+    "capital_en": "Jaipur",
+    "capital_hi": "जयपुर",
+    "districts": 33,
+    "population": "68.5M",
+    "region": "north",
+    "type": "state",
+    "image": "https://images.unsplash.com/photo-1587132135055-2b684f2c12a1?auto=format&fit=crop&w=500&q=60",
+    "page": "rajasthan.html"
+  }
+]

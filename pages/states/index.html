@@ -11,7 +11,6 @@
         .states-listing {
             padding: 2rem 0;
         }
-        
         .filter-section {
             background: white;
             padding: 1.5rem;
@@ -19,26 +18,22 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
         }
-        
         .filter-options {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 1rem;
         }
-        
         .filter-group {
             flex: 1;
             min-width: 200px;
         }
-        
         .filter-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
             color: #555;
         }
-        
         .filter-group select {
             width: 100%;
             padding: 8px 12px;
@@ -46,13 +41,11 @@
             border-radius: 4px;
             background: white;
         }
-        
         .states-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px;
         }
-        
         .state-card-large {
             background: white;
             border-radius: 8px;
@@ -60,34 +53,28 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .state-card-large:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
         .state-img {
             height: 180px;
             background-size: cover;
             background-position: center;
         }
-        
         .state-info {
             padding: 20px;
         }
-        
         .state-name {
             font-weight: bold;
             margin-bottom: 10px;
             color: var(--accent-color);
             font-size: 1.2rem;
         }
-        
         .state-capital {
             color: #666;
             margin-bottom: 10px;
         }
-        
         .state-details {
             display: flex;
             justify-content: space-between;
@@ -95,12 +82,10 @@
             color: #777;
             margin-bottom: 15px;
         }
-        
         .state-actions {
             display: flex;
             gap: 10px;
         }
-        
         .btn {
             padding: 8px 15px;
             border: none;
@@ -109,37 +94,14 @@
             font-weight: 500;
             transition: background 0.3s;
         }
-        
         .btn-primary {
             background: var(--accent-color);
             color: white;
         }
-        
         .btn-outline {
             background: transparent;
             border: 1px solid var(--accent-color);
             color: var(--accent-color);
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 10px;
-        }
-        
-        .page-btn {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .page-btn.active {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--accent-color);
         }
     </style>
 </head>
@@ -250,138 +212,10 @@
             </div>
         </section>
 
-        <!-- States Grid -->
+        <!-- States Grid (Dynamic) -->
         <section class="states-listing">
             <div class="states-grid">
-                <!-- Uttar Pradesh -->
-                <div class="state-card-large" data-state="up" data-region="north" data-type="state">
-                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                    <div class="state-info">
-                        <div class="state-name en">Uttar Pradesh</div>
-                        <div class="state-name hi hindi" style="display: none;">उत्तर प्रदेश</div>
-                        <div class="state-capital en">Capital: Lucknow</div>
-                        <div class="state-capital hi hindi" style="display: none;">राजधानी: लखनऊ</div>
-                        <div class="state-details">
-                            <span class="en">Districts: 75</span>
-                            <span class="hi hindi" style="display: none;">जिले: 75</span>
-                            <span class="en">Population: 199.8M</span>
-                            <span class="hi hindi" style="display: none;">जनसंख्या: 199.8M</span>
-                        </div>
-                        <div class="state-actions">
-                            <button class="btn btn-primary en" onclick="window.location.href='uttar-pradesh.html'">View Details</button>
-                            <button class="btn btn-primary hi hindi" style="display: none;" onclick="window.location.href='uttar-pradesh.html'">विवरण देखें</button>
-                            <button class="btn btn-outline en">Compare</button>
-                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Maharashtra -->
-                <div class="state-card-large" data-state="mh" data-region="west" data-type="state">
-                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                    <div class="state-info">
-                        <div class="state-name en">Maharashtra</div>
-                        <div class="state-name hi hindi" style="display: none;">महाराष्ट्र</div>
-                        <div class="state-capital en">Capital: Mumbai</div>
-                        <div class="state-capital hi hindi" style="display: none;">राजधानी: मुंबई</div>
-                        <div class="state-details">
-                            <span class="en">Districts: 36</span>
-                            <span class="hi hindi" style="display: none;">जिले: 36</span>
-                            <span class="en">Population: 112.4M</span>
-                            <span class="hi hindi" style="display: none;">जनसंख्या: 112.4M</span>
-                        </div>
-                        <div class="state-actions">
-                            <button class="btn btn-primary en">View Details</button>
-                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
-                            <button class="btn btn-outline en">Compare</button>
-                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Rajasthan -->
-                <div class="state-card-large" data-state="rj" data-region="north" data-type="state">
-                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587132135055-2b684f2c12a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                    <div class="state-info">
-                        <div class="state-name en">Rajasthan</div>
-                        <div class="state-name hi hindi" style="display: none;">राजस्थान</div>
-                        <div class="state-capital en">Capital: Jaipur</div>
-                        <div class="state-capital hi hindi" style="display: none;">राजधानी: जयपुर</div>
-                        <div class="state-details">
-                            <span class="en">Districts: 33</span>
-                            <span class="hi hindi" style="display: none;">जिले: 33</span>
-                            <span class="en">Population: 68.5M</span>
-                            <span class="hi hindi" style="display: none;">जनसंख्या: 68.5M</span>
-                        </div>
-                        <div class="state-actions">
-                            <button class="btn btn-primary en">View Details</button>
-                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
-                            <button class="btn btn-outline en">Compare</button>
-                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Tamil Nadu -->
-                <div class="state-card-large" data-state="tn" data-region="south" data-type="state">
-                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                    <div class="state-info">
-                        <div class="state-name en">Tamil Nadu</div>
-                        <div class="state-name hi hindi" style="display: none;">तमिल नाडु</div>
-                        <div class="state-capital en">Capital: Chennai</div>
-                        <div class="state-capital hi hindi" style="display: none;">राजधानी: चेन्नई</div>
-                        <div class="state-details">
-                            <span class="en">Districts: 38</span>
-                            <span class="hi hindi" style="display: none;">जिले: 38</span>
-                            <span class="en">Population: 72.1M</span>
-                            <span class="hi hindi" style="display: none;">जनसंख्या: 72.1M</span>
-                        </div>
-                        <div class="state-actions">
-                            <button class="btn btn-primary en">View Details</button>
-                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
-                            <button class="btn btn-outline en">Compare</button>
-                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Delhi (UT) -->
-                <div class="state-card-large" data-state="dl" data-region="north" data-type="ut">
-                    <div class="state-img" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
-                    <div class="state-info">
-                        <div class="state-name en">Delhi</div>
-                        <div class="state-name hi hindi" style="display: none;">दिल्ली</div>
-                        <div class="state-capital en">Capital: New Delhi</div>
-                        <div class="state-capital hi hindi" style="display: none;">राजधानी: नई दिल्ली</div>
-                        <div class="state-details">
-                            <span class="en">Districts: 11</span>
-                            <span class="hi hindi" style="display: none;">जिले: 11</span>
-                            <span class="en">Population: 16.8M</span>
-                            <span class="hi hindi" style="display: none;">जनसंख्या: 16.8M</span>
-                        </div>
-                        <div class="state-actions">
-                            <button class="btn btn-primary en">View Details</button>
-                            <button class="btn btn-primary hi hindi" style="display: none;">विवरण देखें</button>
-                            <button class="btn btn-outline en">Compare</button>
-                            <button class="btn btn-outline hi hindi" style="display: none;">तुलना करें</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pagination -->
-            <div class="pagination">
-                <button class="page-btn en">Previous</button>
-                <button class="page-btn en">1</button>
-                <button class="page-btn active en">2</button>
-                <button class="page-btn en">3</button>
-                <button class="page-btn en">Next</button>
-                
-                <button class="page-btn hi hindi" style="display: none;">पिछला</button>
-                <button class="page-btn hi hindi" style="display: none;">1</button>
-                <button class="page-btn active hi hindi" style="display: none;">2</button>
-                <button class="page-btn hi hindi" style="display: none;">3</button>
-                <button class="page-btn hi hindi" style="display: none;">अगला</button>
+                <!-- JS dynamically loads state cards here -->
             </div>
         </section>
     </div>
@@ -428,43 +262,9 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/language-toggle.js"></script>
-    <script src="../../assets/js/states-filter.js"></script>
-    <script>
-        // Initialize with English
-        toggleLanguage('en');
-        
-        // Filter functionality
-        document.getElementById('region').addEventListener('change', filterStates);
-        document.getElementById('type').addEventListener('change', filterStates);
-        document.getElementById('sort').addEventListener('change', sortStates);
-        
-        function filterStates() {
-            const region = document.getElementById('region').value;
-            const type = document.getElementById('type').value;
-            const states = document.querySelectorAll('.state-card-large');
-            
-            states.forEach(state => {
-                const stateRegion = state.getAttribute('data-region');
-                const stateType = state.getAttribute('data-type');
-                
-                const regionMatch = region === 'all' || stateRegion === region;
-                const typeMatch = type === 'all' || stateType === type;
-                
-                if (regionMatch && typeMatch) {
-                    state.style.display = 'block';
-                } else {
-                    state.style.display = 'none';
-                }
-            });
-        }
-        
-        function sortStates() {
-            const sortBy = document.getElementById('sort').value;
-            // Implementation for sorting would go here
-            console.log('Sorting by:', sortBy);
-        }
-    </script>
+    <script src="../../assets/js/states.js"></script>
 </body>
 </html>

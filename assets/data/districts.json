@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lucknow",
+    "name_en": "Lucknow",
+    "name_hi": "लखनऊ",
+    "state_en": "Uttar Pradesh",
+    "state_hi": "उत्तर प्रदेश",
+    "population": 4589838,
+    "area": 2528,
+    "description_en": "Lucknow is the capital city of Uttar Pradesh, known for its rich cultural heritage and historical monuments.",
+    "description_hi": "लखनऊ उत्तर प्रदेश की राजधानी है, जो अपनी समृद्ध सांस्कृतिक विरासत और ऐतिहासिक स्मारकों के लिए जाना जाता है।"
+  },
+  {
+    "id": "varanasi",
+    "name_en": "Varanasi",
+    "name_hi": "वाराणसी",
+    "state_en": "Uttar Pradesh",
+    "state_hi": "उत्तर प्रदेश",
+    "population": 3676841,
+    "area": 1535,
+    "description_en": "Varanasi is one of the oldest cities in the world and a major cultural and religious center in India.",
+    "description_hi": "वाराणसी विश्व के सबसे पुराने शहरों में से एक है और भारत में एक प्रमुख सांस्कृतिक और धार्मिक केंद्र है।"
+  },
+  {
+    "id": "agra",
+    "name_en": "Agra",
+    "name_hi": "आगरा",
+    "state_en": "Uttar Pradesh",
+    "state_hi": "उत्तर प्रदेश",
+    "population": 4418797,
+    "area": 4027,
+    "description_en": "Agra is famous for the Taj Mahal, one of the Seven Wonders of the World, and rich Mughal history.",
+    "description_hi": "आगरा ताज महल के लिए प्रसिद्ध है, जो विश्व के सात आश्चर्यों में से एक है, और यहाँ समृद्ध मुग़ल इतिहास है।"
+  },
+  {
+    "id": "mumbai",
+    "name_en": "Mumbai City",
+    "name_hi": "मुंबई सिटी",
+    "state_en": "Maharashtra",
+    "state_hi": "महाराष्ट्र",
+    "population": 3145966,
+    "area": 157,
+    "description_en": "Mumbai is the financial capital of India, known for Bollywood and its bustling urban lifestyle.",
+    "description_hi": "मुंबई भारत की वित्तीय राजधानी है, बॉलीवुड और अपने व्यस्त शहरी जीवनशैली के लिए प्रसिद्ध है।"
+  },
+  {
+    "id": "pune",
+    "name_en": "Pune",
+    "name_hi": "पुणे",
+    "state_en": "Maharashtra",
+    "state_hi": "महाराष्ट्र",
+    "population": 9429408,
+    "area": 15643,
+    "description_en": "Pune is an educational and IT hub, known for its pleasant climate and vibrant culture.",
+    "description_hi": "पुणे एक शैक्षिक और आईटी केंद्र है, जो अपनी सुखद जलवायु और जीवंत संस्कृति के लिए जाना जाता है।"
+  },
+  {
+    "id": "patna",
+    "name_en": "Patna",
+    "name_hi": "पटना",
+    "state_en": "Bihar",
+    "state_hi": "बिहार",
+    "population": 5838465,
+    "area": 3202,
+    "description_en": "Patna is the capital city of Bihar, with a rich history dating back to ancient times.",
+    "description_hi": "पटना बिहार की राजधानी है, जिसका समृद्ध इतिहास प्राचीन काल से है।"
+  },
+  {
+    "id": "kolkata",
+    "name_en": "Kolkata",
+    "name_hi": "कोलकाता",
+    "state_en": "West Bengal",
+    "state_hi": "पश्चिम बंगाल",
+    "population": 4496694,
+    "area": 206,
+    "description_en": "Kolkata, the cultural capital of India, is known for its art, literature, and colonial architecture.",
+    "description_hi": "कोलकाता, भारत की सांस्कृतिक राजधानी, कला, साहित्य और उपनिवेशकालीन वास्तुकला के लिए प्रसिद्ध है।"
+  }
+]

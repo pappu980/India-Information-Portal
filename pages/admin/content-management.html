@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Management - Admin Panel</title>
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+  <header>
+    <h1>Content Management</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="user-management.html">Users</a>
+      <a href="analytics.html">Analytics</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section Selector -->
+    <section class="cms-selector">
+      <label for="section">Select Section:</label>
+      <select id="section">
+        <option value="states">States</option>
+        <option value="districts">Districts</option>
+        <option value="culture">Culture</option>
+        <option value="tourism">Tourism</option>
+      </select>
+    </section>
+
+    <!-- Add New Content -->
+    <section class="cms-form">
+      <h2>Add / Edit Content</h2>
+      <form>
+        <label>Title:</label>
+        <input type="text" placeholder="Enter title" required>
+
+        <label>Description:</label>
+        <textarea placeholder="Enter description" rows="5"></textarea>
+
+        <label>Image Upload:</label>
+        <input type="file" accept="image/*">
+
+        <button type="submit">Publish</button>
+        <button type="reset">Clear</button>
+      </form>
+    </section>
+
+    <!-- Content List -->
+    <section class="cms-list">
+      <h2>Existing Content</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Section</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Uttar Pradesh</td>
+            <td>States</td>
+            <td>Published</td>
+            <td>
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lucknow</td>
+            <td>Districts</td>
+            <td>Draft</td>
+            <td>
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 India Information Portal - Admin</p>
+  </footer>
+</body>
+</html>

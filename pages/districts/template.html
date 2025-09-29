@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{DISTRICT_NAME_EN}} | {{DISTRICT_NAME_HI}} - {{STATE_NAME_EN}} District</title>
+    <meta name="description" content="{{DISTRICT_NAME_EN}} ({{DISTRICT_NAME_HI}}), a district of {{STATE_NAME_EN}} ({{STATE_NAME_HI}}). Population: {{POPULATION}}, Area: {{AREA}} km².">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/district-page.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AdministrativeArea",
+      "name": "{{DISTRICT_NAME_EN}}",
+      "alternateName": "{{DISTRICT_NAME_HI}}",
+      "containedInPlace": {
+        "@type": "State",
+        "name": "{{STATE_NAME_EN}}",
+        "alternateName": "{{STATE_NAME_HI}}"
+      },
+      "population": {{POPULATION}},
+      "area": {{AREA}},
+      "url": "https://yourdomain.com/districts/generated/{{DISTRICT_ID}}.html"
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>{{DISTRICT_NAME_EN}} <span class="hi hindi">{{DISTRICT_NAME_HI}}</span></h1>
+        <p>State: {{STATE_NAME_EN}} <span class="hi hindi">{{STATE_NAME_HI}}</span></p>
+        <p>Population: {{POPULATION}}</p>
+        <p>Area: {{AREA}} km²</p>
+    </header>
+    <main>
+        <section>
+            <h2 class="en">About {{DISTRICT_NAME_EN}}</h2>
+            <h2 class="hi hindi" style="display: none;">{{DISTRICT_NAME_HI}} के बारे में</h2>
+            <p class="en">{{DISTRICT_DESCRIPTION_EN}}</p>
+            <p class="hi hindi" style="display: none;">{{DISTRICT_DESCRIPTION_HI}}</p>
+        </section>
+        <section>
+            <a href="index.html" class="btn btn-primary en">Back to All Districts</a>
+            <a href="index.html" class="btn btn-primary hi hindi" style="display: none;">सभी जिलों पर वापस जाएं</a>
+        </section>
+    </main>
+    <footer>
+        <p class="en">© 2023 Bharat: States & Districts Information Portal. All rights reserved.</p>
+        <p class="hi hindi" style="display: none;">© 2023 भारत: राज्य और जिला सूचना पोर्टल। सर्वाधिकार सुरक्षित।</p>
+    </footer>
+    <script src="../../assets/js/language-toggle.js"></script>
+    <script>
+        toggleLanguage('en');
+    </script>
+</body>
+</html>
